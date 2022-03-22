@@ -39,7 +39,11 @@
                 <div class="col">
                     <a class="box_number text-center">
                         <p id='a' hidden> {{implode(',', $graphData)}}</p>
-                        <p id="m" class="number mb-0"> {{ $messages }}</p>
+                        @if($messages != 0)
+                            <p id="m" class="number mb-0"> {{ $messages }}</p>
+                        @else
+                            <p id="m" class="number mb-0"> 0 </p>
+                        @endif
                         <p class="text">Messaggi</p>
                     </a>
                 </div>

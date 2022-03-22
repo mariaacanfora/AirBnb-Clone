@@ -13,8 +13,12 @@ class MessageController extends Controller
     public function index(){
         $apartments = Apartment::where('user_id', Auth::user()->id)->get();
 
-        foreach ($apartments as $key => $apartment) {
-            $messages[$key] = $apartment->messages()->get();
+        if (count($apartments) != 0) {
+            foreach ($apartments as $key => $apartment) {
+                $messages[$key] = $apartment->messages()->get();
+            }
+        } else {
+            $messages = [];
         }
         //dd($messages);
         /* $messages = $apartments->messages()->get();
